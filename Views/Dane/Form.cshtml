@@ -1,0 +1,23 @@
+@model DaneModel
+
+@{
+    ViewData["Title"] = "Form";
+}
+
+@using (Html.BeginForm("Form", "Dane", FormMethod.Post))
+{
+    @Html.ValidationSummary(false, "", new { @class = "text-danger"})
+    <p>Twoje imie: @Html.TextBoxFor(a => a.Imie)</p>
+    <p>Twoje nazwisko: @Html.TextBoxFor(a => a.Nazwisko)</p>                                            
+    <p>Twoj email: @Html.TextBoxFor(a => a.Email)</p>
+    <p>Twoje hasło: @Html.TextBoxFor(a => a.Haslo)</p>  
+    <p>Powtórz hasło: @Html.TextBoxFor(a => a.PotwierdzenieHasla)</p>
+    <p>Nr telefonu: @Html.TextBoxFor(a => a.NumerTelefonu)</p>
+    <p>Twój wiek: @Html.TextBoxFor(a => a.Wiek)</p>
+    <p>Twoje miasto: @Html.DropDownListFor(a => a.Miasto, new SelectList(Enum.GetValues(typeof(DaneModel.Miasta))),"wybierz miasto")</p>
+                                        
+    <input type="submit" value="Zapisz"/>
+    <input type="reset" value="Wyczyść"/>
+    
+    
+}
